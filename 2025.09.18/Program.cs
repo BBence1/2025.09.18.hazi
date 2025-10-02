@@ -10,7 +10,7 @@ namespace _2025._09._16.hazi
     {
         static void Main(string[] args)
         {
-            
+            F37();
         }
         static void F1()
         {
@@ -319,7 +319,7 @@ namespace _2025._09._16.hazi
             }
             Console.Write(szam);
         }
-        static void F24() 
+        static void F24()
         {
             Console.WriteLine("Szó: ");
             string szo = Console.ReadLine();
@@ -330,7 +330,7 @@ namespace _2025._09._16.hazi
             }
             Console.WriteLine("Az alma gyümölcs!");
         }
-        static void F25() 
+        static void F25()
         {
             Console.WriteLine("Kérek egy számot: ");
             int szam = int.Parse(Console.ReadLine());
@@ -342,33 +342,33 @@ namespace _2025._09._16.hazi
             }
             Console.Write($"{db}*3+{szam}");
         }
-        static bool F26(int szam) 
+        static bool F26(int szam)
         {
             int db = 0;
             for (int i = 1; i <= szam; i++)
             {
-                if(szam%i== 0)
+                if (szam % i == 0)
                 {
                     db++;
                 }
             }
             if (db == 2)
             {
-               return true;
+                return true;
             }
-            else 
+            else
             {
                 return false;
             }
         }
-        static void F27() 
+        static void F27()
         {
 
             Console.WriteLine("Szám: ");
             int szam = int.Parse(Console.ReadLine());
-            for (int i = 1; i <= szam; i++) 
+            for (int i = 1; i <= szam; i++)
             {
-                if (F26(i)) 
+                if (F26(i))
                 {
                     Console.WriteLine($"{i}");
                 }
@@ -380,25 +380,25 @@ namespace _2025._09._16.hazi
             int szam = int.Parse(Console.ReadLine());
             for (int i = 1; i <= szam; i++)
             {
-                if (F26(i) && szam%i==0)
+                if (F26(i) && szam % i == 0)
                 {
                     Console.WriteLine($"{i}");
                 }
             }
         }
-        static void F29() 
+        static void F29()
         {
             int i = 1;
             Console.WriteLine("Szám: ");
             int szam = int.Parse(Console.ReadLine());
-            while (!F26(szam) && i <= szam) 
+            while (!F26(szam) && i <= szam)
             {
                 if (!F26(i) && szam % i == 0)
                 {
                     Console.WriteLine($"{szam} | {i}");
                     szam /= i;
                 }
-                else 
+                else
                 {
                     i++;
                 }
@@ -406,35 +406,182 @@ namespace _2025._09._16.hazi
             Console.WriteLine($"{szam} |");
             //hibás
         }
-        static void F30() 
+        static void F30()
         {
             Console.WriteLine("Szám1: ");
             int szam1 = int.Parse(Console.ReadLine());
             Console.WriteLine("Szám2: ");
             int szam2 = int.Parse(Console.ReadLine());
 
-            while(szam1 != szam2)
+            while (szam1 != szam2)
             {
                 if (szam1 > szam2)
                 {
                     szam1 = szam1 - szam2;
                 }
-                else 
+                else
                 {
-                    szam2=szam2 - szam1;
+                    szam2 = szam2 - szam1;
                 }
             }
             Console.WriteLine(szam1);
-           
+
         }
-        static void F31() 
+        static void F31()
         {
+            int lnko = 0;
             Console.WriteLine("Szám1: ");
-            int szam1 = int.Parse(Console.ReadLine());
+            int a = int.Parse(Console.ReadLine());
             Console.WriteLine("Szám2: ");
-            int szam2 = int.Parse(Console.ReadLine());
+            int b = int.Parse(Console.ReadLine());
 
+            int temp = a;
+            if (a > b)
+            {
+                temp = a;
+                a = b;
+                b = temp;
+            }
+            while (b % temp != 0)
+            {
+                temp--;
+            }
+            if (temp != 1)
+            {
+                while (a > 0)
+                {
+                    temp = a;
+                    a = b % a;
+                    b = temp;
+                }
+                lnko = b;
+            }
+
+            Console.WriteLine((a * b) / lnko);
 
         }
+        static void F32()
+        {
+            Console.WriteLine("Szám: ");
+            int szam = int.Parse(Console.ReadLine());
+            for (int i = 1; i <= szam; i++)
+            {
+                for (int j = 1; j <= szam; j++)
+                {
+                    Console.Write(i * j + "\t");
+                }
+                Console.WriteLine();
+            }
+        }
+        static void F33()
+        {
+            Console.WriteLine("Szám: ");
+            int szam = int.Parse(Console.ReadLine());
+
+            for (int i = 1; i <= szam; i++)
+            {
+                for (int j = 1; j <= szam; j++)
+                {
+
+                }
+            }
+        }
+        static void F34()
+        {
+            for (int sz1 = 10; sz1 < 100; sz1++)
+            {
+                for (int sz2 = 10; sz2 < 100; sz2++)
+                {
+                    int csere1 = int.Parse($"{sz1.ToString()[1]}{sz1.ToString()[0]}");
+                    int csere2 = int.Parse($"{sz2.ToString()[1]}{sz2.ToString()[0]}");
+                    if (sz1 * sz2 == csere1 * csere2)
+                    {
+                        Console.WriteLine($"{sz1}, {sz2}");
+                    }
+                }
+            }
+        }
+        static void F35()
+        {
+            int ascii = 97;
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 2; j++)
+                {
+                    if (ascii < 123)
+                    {
+                        Console.Write($"{Convert.ToChar(ascii)} {ascii}\t");
+                        ascii++;
+                    }
+                }
+                Console.WriteLine("\t");
+            }
+        }
+
+
+        static void F36()
+        {
+            Console.WriteLine("sor: ");
+            int sor = int.Parse(Console.ReadLine());
+            Console.WriteLine("oszlop: ");
+            int oszlop = int.Parse(Console.ReadLine());
+            bool x = true;
+
+            for (int i = 0; i < sor; i++)
+            {
+                for (int j = 0; j < oszlop; j++)
+                {
+                    if (x)
+                    {
+                        Console.Write("x");
+                    }
+                    else
+                    {
+                        Console.Write("o");
+                    }
+                    x = !x;
+                }
+                if (oszlop % 2 == 0)
+                {
+                    x = !x;
+                }   
+                Console.WriteLine();
+            }
+        }
+
+        static void F37()
+        {
+            Console.Write("sor: ");
+            int sor = int.Parse(Console.ReadLine());
+            int sordb = 0;
+            string csillag= "*";
+            Console.Write(csillag);
+            while (sor-1 != sordb)
+            {
+                csillag += "**";
+                Console.WriteLine();
+                Console.Write(csillag);
+                sordb++;
+            }
+
+        }
+
+        static void F38()
+        {
+            Console.WriteLine("m: ");
+            int m = int.Parse(Console.ReadLine());
+            int mdb = 0;
+            string csillag = "*";
+            string space = " ";
+            Console.Write(csillag);
+            while (m - 1 != mdb)
+            {
+                csillag += "**";
+                Console.WriteLine();
+                Console.Write(csillag);
+                mdb++;
+            }
+        }
+
     }
 }
