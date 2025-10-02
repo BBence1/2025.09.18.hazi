@@ -10,7 +10,7 @@ namespace _2025._09._16.hazi
     {
         static void Main(string[] args)
         {
-            F37();
+            F32();
         }
         static void F1()
         {
@@ -482,8 +482,9 @@ namespace _2025._09._16.hazi
             {
                 for (int j = 1; j <= szam; j++)
                 {
-
+                    Console.Write(i + j + "\t");
                 }
+                Console.WriteLine();
             }
         }
         static void F34()
@@ -570,16 +571,17 @@ namespace _2025._09._16.hazi
         {
             Console.WriteLine("m: ");
             int m = int.Parse(Console.ReadLine());
-            int mdb = 0;
-            string csillag = "*";
-            string space = " ";
-            Console.Write(csillag);
-            while (m - 1 != mdb)
+            for (int i = 0; i < m; i++)
             {
-                csillag += "**";
+                for (int j = 0; j < m - i; j++)
+                {
+                    Console.Write(" ");
+                }
+                for (int k = 0; k < i * 2 + 1; k++)
+                {
+                    Console.Write("*");
+                }
                 Console.WriteLine();
-                Console.Write(csillag);
-                mdb++;
             }
         }
 
