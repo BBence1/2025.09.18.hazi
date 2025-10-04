@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ namespace _2025._09._16.hazi
     {
         static void Main(string[] args)
         {
-            F32();
+            F61();
         }
         static void F1()
         {
@@ -584,6 +585,103 @@ namespace _2025._09._16.hazi
                 Console.WriteLine();
             }
         }
+
+        static void F42()
+        {
+            Console.WriteLine("Darabszám: ");
+            int dbszam = int.Parse(Console.ReadLine());
+            int[] osszes=new int[dbszam];
+            int paratlan = 0;
+            for(int i = 0;i < dbszam; i++)
+            {
+                Console.WriteLine("Szám: ");
+                int szam = int.Parse(Console.ReadLine());
+                osszes[i]= szam;
+                
+            }
+            for(int i = 0; osszes.Length > i; i++)
+            {
+                if (osszes[i] %2 != 0)
+                {
+                    paratlan++;
+                }
+            }
+            Console.WriteLine($"páratlan db: {paratlan}");
+        }
+
+        static void F46()
+        {
+            Console.WriteLine("Darabszám: ");
+            int dbszam=int.Parse(Console.ReadLine());
+            int[] szamok=new int[dbszam];
+            int gyakorisag = 0;
+            for(int i = 0;i< dbszam; i++)
+            {
+                Console.WriteLine("szám: ");
+                int szam = int.Parse(Console.ReadLine());
+                szamok[i]=szam;
+            }
+            Console.WriteLine("Kívánt szám: ");
+            int kszam = int.Parse(Console.ReadLine());
+            for(int i = 0; i < szamok.Length; i++)
+            {
+                if (szamok[i] == kszam)
+                {
+                    gyakorisag++;
+                }
+            }
+            Console.WriteLine($"Ennyiszer szerepelt: {gyakorisag}");
+        }
+        static void F51()
+        {
+            Console.Write("Szó: ");
+            string szo = Console.ReadLine();
+            Console.Write("Tabu: ");
+            string tabu = Console.ReadLine();
+            for(int i = 0;i< szo.Length;i++)
+            {
+                if (szo[i].ToString() != tabu)
+                {
+                    Console.Write(szo[i]);
+                }
+            }
+        }
+        static void F55()
+        {
+            Console.Write("Mondat: ");
+            string mondat=Console.ReadLine();
+            for(int i = 0; mondat.Length > i; i++)
+            {
+                if (mondat[i].ToString()==" ")
+                {
+                    Console.WriteLine();
+                }
+                else
+                {
+                    Console.Write(mondat[i]);
+                }
+            }
+
+        }
+
+        static void F61()
+        {
+            StreamReader sr= new StreamReader("forras61.be");
+            string[] szavak=new string[int.Parse(sr.ReadLine())];
+            int max = 0;
+            for(int i = 0; i < szavak.Length; i++)
+            {
+                if (szavak[i].Length > szavak[max].Length)
+                {
+                    max = i;
+                }
+                Console.WriteLine($"Leghosszabb szó: {max}");
+            }
+            
+
+        }
+
+
 
     }
 }
