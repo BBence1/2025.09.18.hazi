@@ -11,7 +11,7 @@ namespace _2025._09._16.hazi
     {
         static void Main(string[] args)
         {
-            F61();
+            F67();
         }
         static void F1()
         {
@@ -664,6 +664,21 @@ namespace _2025._09._16.hazi
 
         }
 
+        static void F58()
+        {
+            StreamReader sr= new StreamReader("forras58.be");
+            int[] szamok = new int[int.Parse(sr.ReadLine())];
+            int max = 0;
+            for(int i = 0; i < szamok.Length; i++)
+            {
+                szamok[i]=int.Parse(sr.ReadLine());
+                if (szamok[i] > szamok[max])
+                {
+                    max = i;
+                }
+            }
+            Console.WriteLine($"A legnagyobb szám: {szamok[max]}");
+        }
         static void F61()
         {
             StreamReader sr= new StreamReader("forras61.be");
@@ -671,14 +686,45 @@ namespace _2025._09._16.hazi
             int max = 0;
             for(int i = 0; i < szavak.Length; i++)
             {
+                szavak[i]= sr.ReadLine();
                 if (szavak[i].Length > szavak[max].Length)
                 {
                     max = i;
                 }
-                Console.WriteLine($"Leghosszabb szó: {max}");
             }
-            
+            Console.WriteLine($"Leghosszabb szó: {szavak[max]}");
+        }
 
+        static void F67()
+        {
+            StreamReader sr = new StreamReader("forras67.be");
+            int[] szamok=new int[100];
+            int posszeg = 0;
+            for( int i = 0;i < szamok.Length && !sr.EndOfStream; i++)
+            {
+                szamok[i] = int.Parse(sr.ReadLine());
+                if (szamok[i] % 2 == 0)
+                {
+                    posszeg += szamok[i];
+                }
+            }
+            Console.WriteLine($"Párosak összege: {posszeg}");
+        }
+
+        static void F68()
+        {
+            StreamReader sr = new StreamReader("forras68.be");
+            string[] szavak = new string[100];
+            int min = 0;
+            for (int i = 0;i < szavak.Length && !sr.EndOfStream; i++)
+            {
+                szavak[i]=sr.ReadLine();
+                if (szavak[i].Length < szavak[min].Length)
+                {
+                    min = i;
+                }
+            }
+            Console.WriteLine($"Legrövidebb szó: {szavak[min]}");
         }
 
 
