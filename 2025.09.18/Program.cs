@@ -11,7 +11,7 @@ namespace _2025._09._16.hazi
     {
         static void Main(string[] args)
         {
-            F67();
+            F65();
         }
         static void F1()
         {
@@ -609,6 +609,34 @@ namespace _2025._09._16.hazi
             Console.WriteLine($"páratlan db: {paratlan}");
         }
 
+        static void F45()
+        {
+            Console.WriteLine("Hossz: ");
+            int hossz=int.Parse(Console.ReadLine());
+            int[] szamok=new int[hossz];
+
+            for(int i = 0;  i < hossz; i++)
+            {
+                Console.WriteLine("Szam: ");
+                int szam= int.Parse(Console.ReadLine());
+                szamok[i]= szam;
+            }
+            Console.WriteLine("Keresett szam: ");
+            int kszam = int.Parse(Console.ReadLine());
+            for (int i = 0; szamok.Length > i; i++)
+            {
+                if (szamok[i] == kszam)
+                {
+                    Console.WriteLine(i);
+                }
+                
+            }
+            if (!szamok.Contains(kszam))
+            {
+                Console.WriteLine("A beolvasott szám nincs a tömbben.");
+            }
+        }
+
         static void F46()
         {
             Console.WriteLine("Darabszám: ");
@@ -632,6 +660,35 @@ namespace _2025._09._16.hazi
             }
             Console.WriteLine($"Ennyiszer szerepelt: {gyakorisag}");
         }
+        static void F48()
+        {
+            Console.WriteLine("Hossz: ");
+            int hossz=int.Parse(Console.ReadLine());
+            int[] szamok = new int[hossz];
+            int min = 0;
+            int max = 0;
+            for(int i = 0; i<hossz; i++)
+            {
+                Console.WriteLine("Szam: ");
+                int szam=int.Parse(Console.ReadLine());
+                szamok[i]=szam;
+            }
+            for(int i = 0; i < szamok.Length; i++)
+            {
+                if (szamok[i] > szamok[max])
+                {
+                    max = i;
+                }
+                if (szamok[i] < szamok[min])
+                {
+                    min = i;
+                }
+            }
+            Console.WriteLine($"Különbség: {szamok[min]-szamok[max]}");
+            
+        }
+
+
         static void F51()
         {
             Console.Write("Szó: ");
@@ -644,6 +701,27 @@ namespace _2025._09._16.hazi
                 {
                     Console.Write(szo[i]);
                 }
+            }
+        }
+        static void F52()
+        {
+            Console.WriteLine("Szó: ");
+            string szo= Console.ReadLine();
+            for(int i = 0;i< szo.Length; i++)
+            {
+                if (i % 2 != 0)
+                {
+                    Console.WriteLine(szo[i]);
+                }
+            }
+        }
+        static void F53()
+        {
+            Console.WriteLine("Szó: ");
+            string szo=Console.ReadLine();
+            for(int i = 0;i< szo.Length; i++)
+            {
+                Console.WriteLine(Convert.ToInt32(szo[i]));
             }
         }
         static void F55()
@@ -679,6 +757,23 @@ namespace _2025._09._16.hazi
             }
             Console.WriteLine($"A legnagyobb szám: {szamok[max]}");
         }
+        static void F60()
+        {
+            StreamReader sr = new StreamReader("forras60.be");
+            int[] szamok = new int[int.Parse(sr.ReadLine())];
+            int paratlan = 0;
+            int db = 0;
+            for(int i = 0;i < szamok.Length; i++)
+            {
+                szamok[i]= int.Parse(sr.ReadLine());
+                if (szamok[i]%2 != 0)
+                {
+                    paratlan += szamok[i];
+                    db++;
+                }
+            }
+            Console.WriteLine($"Páratlan átlag: {paratlan/db}");
+        }
         static void F61()
         {
             StreamReader sr= new StreamReader("forras61.be");
@@ -693,6 +788,37 @@ namespace _2025._09._16.hazi
                 }
             }
             Console.WriteLine($"Leghosszabb szó: {szavak[max]}");
+        }
+        static void F63()
+        {
+            StreamReader sr = new StreamReader("forras63.be");
+            int[] szamok=new int[int.Parse(sr.ReadLine())];
+            for(int i = 0;i < szamok.Length && !sr.EndOfStream; i++)
+            {
+                szamok[i] = int.Parse(sr.ReadLine());
+            }
+            Array.Sort(szamok);
+            szamok.Reverse();
+            for(int i = 0; i < szamok.Length; i++)
+            {
+                Console.WriteLine(szamok[i]);
+            }    
+        }
+
+        static void F65()
+        {
+            StreamReader sr = new StreamReader("forras65.be");
+            int[] szamok = new int[6];
+            int min = 0;
+            for(int i = 0;i<szamok.Length && !sr.EndOfStream; i++)
+            {
+                szamok[i]=int.Parse(sr.ReadLine());
+                if (szamok[min] > szamok[i])
+                {
+                    min = i;
+                }
+            }
+            Console.WriteLine($"A legkisebb szám: {szamok[min]}");
         }
 
         static void F67()
@@ -727,7 +853,28 @@ namespace _2025._09._16.hazi
             Console.WriteLine($"Legrövidebb szó: {szavak[min]}");
         }
 
-
+        static void F69()
+        {
+            StreamReader sr = new StreamReader("forras69.be");
+            string[] szavak = new string[100];
+            string[] nemA = new string[100];
+            for(int i = 0;i< szavak.Length && ! sr.EndOfStream; i++)
+            {
+                szavak[i]= sr.ReadLine();
+                if (szavak[i][0].ToString() != "a")
+                {
+                    nemA[i] = szavak[i];
+                }
+            }
+            for(int i = 0;i< nemA.Length; i++)
+            {
+                if (nemA[i]!=null)
+                {
+                    Console.WriteLine(nemA[i]);
+                }
+            }
+            
+        }
 
     }
 }
